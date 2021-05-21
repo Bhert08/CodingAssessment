@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Provider } from "./Context";
+import Form from "./components/Form";
+import UserList from "./components/UserList";
+import { Actions } from "./Actions";
 function App() {
+  const data = Actions();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider value={data}>
+      <div className="App">
+        <h1>React JS + PHP CRUD Application</h1>
+        <div className="wrapper">
+          <section className="left-side">
+            <Form />
+          </section>
+          <section className="right-side">
+            <UserList />
+          </section>
+        </div>
+      </div>
+    </Provider>
   );
 }
 
